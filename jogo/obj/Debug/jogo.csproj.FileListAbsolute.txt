@@ -22,3 +22,15 @@ D:\Projetos_LP2\novoJogo\jogo\obj\Debug\jogo.csproj.GenerateResource.cache
 D:\Projetos_LP2\novoJogo\jogo\obj\Debug\jogo.csproj.CoreCompileInputs.cache
 D:\Projetos_LP2\novoJogo\jogo\obj\Debug\jogo.exe
 D:\Projetos_LP2\novoJogo\jogo\obj\Debug\jogo.pdb
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\bin\Debug\jogo.exe.config
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\bin\Debug\jogo.exe
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\bin\Debug\jogo.pdb
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\obj\Debug\jogo.csproj.AssemblyReference.cache
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\obj\Debug\jogo.csproj.SuggestedBindingRedirects.cache
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\obj\Debug\jogo.Form1.resources
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\obj\Debug\jogo.Form2.resources
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\obj\Debug\jogo.Properties.Resources.resources
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\obj\Debug\jogo.csproj.GenerateResource.cache
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\obj\Debug\jogo.csproj.CoreCompileInputs.cache
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\obj\Debug\jogo.exe
+C:\Users\adils\OneDrive\Área de Trabalho\Projetos_C#\Jogo_da_Velha\jogo\obj\Debug\jogo.pdb

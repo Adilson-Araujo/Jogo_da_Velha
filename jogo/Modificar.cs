@@ -14,7 +14,6 @@ namespace jogo
      
         int jogador1;
         int jogador2;
-        Maquina maquina;
 
         
         public Modificar() 
@@ -22,13 +21,11 @@ namespace jogo
             tabuleiro = new int[3, 3];//matriz
             jogador1 = 0;
             jogador2 = 0;
-            maquina = new Maquina();
         }
         
         public void jogada (int i, int j, int valor)//recebe a posicao e identifa o jogador
         {
             tabuleiro[i, j] = valor;
-            maquina.jogadas(i, j, valor);
         }
         public void zeraJogada()
         {
@@ -143,6 +140,10 @@ namespace jogo
         }
         public int Verificar()
         {
+            /*
+            StringBuilder sp = new StringBuilder();
+            MessageBox.Show((sp.AppendFormat("{0} {1} {2}\n{3} {4} {5}\n{6} {7} {8}", tabuleiro[0,0], tabuleiro[0, 1], tabuleiro[0, 2], tabuleiro[1,0], tabuleiro[1, 1], tabuleiro[1, 2], tabuleiro[2, 0], tabuleiro[2, 1], tabuleiro[2, 2])).ToString());
+            */
             if (AnaliseDiagonalPrin() == 3) return 1;
             else if (AnaliseDiagonalPrin() == 6) return 2;
             else if (AnaliseHorizontal() == 3) return 1;

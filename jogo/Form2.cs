@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,7 +24,6 @@ namespace jogo
         int clique =0;
         int sinal;
         Modificar modifica;//Classe responsável por realizar toda a análise do jogo
-        Maquina computador;
         Button[,] botoes;
 
         public Form2(string nome1, string nome2, int usuarios)//Contrutor
@@ -39,30 +39,33 @@ namespace jogo
             cont = 0;
             sinal = usuarios;///////////
             modifica = new Modificar();
-            computador = new Maquina();
             
         }
 
 
         public void message()//Responsável por identificar a vez do proximo jogador
         {//Jogador a jogar quando cont for: impar jogador2 - par jogador1
+
             cont++;
             if (cont % 2 == 0)
             {
+                
                 label1.Text = "Sua vez: " + jogador1;//Nome do proximo jogador
                 situacao = "X";
                 pessoa = 2;
-                if(sinal == 1)maquina();
+
             }
             else
             {
+                
                 label1.Text = "Sua vez: " + jogador2;//Nome do próximo jogador
                 situacao = "O";
                 pessoa = 1;//num 1 representa jogador 1
-                if (sinal == 2) maquina();
             }
-            
-            
+            /*
+            StringBuilder sp = new StringBuilder();
+            MessageBox.Show((sp.AppendFormat("cont {0}", cont)).ToString());
+            */
         }
 
         public void AnaliseGanhador()//Analisar o ganhador da rodada
@@ -76,6 +79,10 @@ namespace jogo
             placar();
             if(analise !=0) butTroca.Enabled = true;
             else butTroca.Enabled = false;
+            //////////////
+            if ((sinal == 1 && cont % 2 == 0) && analise != 1 && analise != 2 && analise != 1010) maquina();
+            else if ((sinal == 2 && cont % 2 != 0) && analise != 1 && analise != 2 && analise != 1010) maquina();
+
 
         }
         public void desativarButton()//Desativar o tabuleiro em caso de empate
@@ -102,53 +109,61 @@ namespace jogo
             string nome1 = jogador1;
             jogador1 = jogador2;
             jogador2 = nome1;
+            if (sinal == 1) sinal = 2;
+            else if (sinal == 2) sinal = 1;
             int pont1 = pontojog1;
             pontojog1 = pontojog2;
             pontojog2 = pont1;
         }
-
-
-
-
-
         public void maquina()
         {
+            Random random = new Random();
             int linha;
             int coluna;
+
             botoes = new Button[,] { 
                 { button1, button3, button2 },
                 { button6, button4, button5 },
                 { button9, button7, button8 }
             };
-            linha = computador.realizarJogadaLinha();
-            coluna = computador.realizarJogadaColuna();
-            while (true)
+            int qnt = 0;
+            do
             {
-                linha = computador.realizarJogadaLinha();
-                coluna = computador.realizarJogadaColuna();
-                if (botoes[linha, coluna].Enabled == true) break; 
-            }
+                linha = random.Next(0, 2);
+                coluna = random.Next(0, 2);
+
+                if(qnt == 100)
+                {
+                    for(int i=0; i<botoes.GetLength(0); i++)
+                    {
+                        for (int j=0; j<botoes.GetLength(1); j++)
+                        {
+                            if (botoes[i,j].Enabled == true)
+                            {
+                                linha = i;
+                                coluna = j;
+                            }
+                        }
+                    }
+                }
+                qnt += 1;
+            } while (botoes[linha, coluna].Enabled == false);
+
             botoes[linha, coluna].Enabled = false;
             botoes[linha, coluna].Text = situacao;
             message();
             modifica.jogada(linha, coluna, pessoa);
-            AnaliseGanhador();
-        
-        
-        
-        
+            AnaliseGanhador();        
         }
-
         //Eventos
         private void button1_Click(object sender, EventArgs e)//Botão representa (0,0) na matriz
-        {
-
-            
+        { 
             button1.Enabled = false;
             button1.Text = situacao;
             message();
             modifica.jogada(0, 0, pessoa);
             AnaliseGanhador();
+
         }
 
         private void button3_Click(object sender, EventArgs e)//Botão representa (0,1) na matriz
@@ -228,27 +243,32 @@ namespace jogo
             cont = -1;
             message();
             modifica.zeraJogada();//zerar partida assim que iniciada
-            computador.zeraJogada();//zerar para a maqina
             placar();
             butTroca.Enabled = false;
+            if (sinal == 1 && cont % 2 == 0) maquina();
+            else if (sinal == 2 && cont % 2 != 0) maquina();
         }
         private void butRestart_Click(object sender, EventArgs e)//Recomeçar o jogo
         {
             cont = -1;
             modifica.zeraJogada();//zerar partida assim que iniciada
-            computador.zeraJogada();//zerar para a maqina
             Pausebutton();
             message();
             placar();
             butTroca.Enabled = false;
+            if (sinal == 1 && cont % 2 == 0) maquina();
+            else if (sinal == 2 && cont % 2 != 0) maquina();
         }
 
         private void butTroca_Click(object sender, EventArgs e)//Trocar de simbolo
         {
-
             trocarSimbolo();
-           
             butTroca.Enabled = false;
+        }
+
+        private void butFechar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

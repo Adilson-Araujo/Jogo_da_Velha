@@ -59,12 +59,13 @@
             // 
             // butstar
             // 
-            this.butstar.Location = new System.Drawing.Point(49, 162);
+            this.butstar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butstar.Location = new System.Drawing.Point(42, 162);
             this.butstar.Name = "butstar";
-            this.butstar.Size = new System.Drawing.Size(75, 23);
+            this.butstar.Size = new System.Drawing.Size(97, 47);
             this.butstar.TabIndex = 2;
             this.butstar.TabStop = false;
-            this.butstar.Text = "Star";
+            this.butstar.Text = "Jogar";
             this.butstar.UseVisualStyleBackColor = true;
             this.butstar.Click += new System.EventHandler(this.butstar_Click);
             // 
@@ -138,7 +139,7 @@
             this.Controls.Add(this.textJog1);
             this.Controls.Add(this.textJog2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Jogo da Velha";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

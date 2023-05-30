@@ -45,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.butFechar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -259,11 +260,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Placar";
             // 
+            // butFechar
+            // 
+            this.butFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butFechar.Location = new System.Drawing.Point(334, 255);
+            this.butFechar.Name = "butFechar";
+            this.butFechar.Size = new System.Drawing.Size(130, 31);
+            this.butFechar.TabIndex = 18;
+            this.butFechar.Text = "Fechar";
+            this.butFechar.UseVisualStyleBackColor = true;
+            this.butFechar.Click += new System.EventHandler(this.butFechar_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 354);
+            this.Controls.Add(this.butFechar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.butTroca);
             this.Controls.Add(this.butRestart);
@@ -278,7 +291,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Jogo da Velha";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -305,5 +318,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button butFechar;
     }
 }

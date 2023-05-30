@@ -61,6 +61,9 @@ namespace jogo
         {
             butstar.Enabled = false;
             comboBMaq.Visible = true;
+            textJog1.Text = textJog2.Text = " ";
+            textJog1.Enabled = textJog2.Enabled = true;
+            comboBMaq.Text = "Adversário:";
         }
 
         private void radioBut2Play_CheckedChanged(object sender, EventArgs e)//jogar com outro jogador
